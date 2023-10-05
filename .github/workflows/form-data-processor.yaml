@@ -12,7 +12,15 @@ jobs:
         id: data-processor
         uses: hegupta-adbe/form-data-processor@master
         with:
+          repo-owner-name: ${{ github.repository }}
+          repo-key-id: ${{ secrets.REPO_KEY_ID }}
+          repo-key: ${{ secrets.REPO_KEY }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          ms-graph-tenant: ${{ vars.MS_GRAPH_TENANT }}
           ms-graph-auth-token: ${{ secrets.MS_GRAPH_AUTH_TOKEN }}
+          ms-graph-refresh-token: ${{ secrets.MS_GRAPH_REFRESH_TOKEN }}
+          ms-graph-client-id: ${{ secrets.MS_GRAPH_CLIENT_ID }}
+          ms-graph-client-secret: ${{ secrets.MS_GRAPH_CLIENT_SECRET }}
           sf-instance-url: ${{ vars.SF_INSTANCE_URL }}
           sf-client-id: ${{ secrets.SF_CLIENT_ID }}
           sf-client-secret: ${{ secrets.SF_CLIENT_SECRET }}
