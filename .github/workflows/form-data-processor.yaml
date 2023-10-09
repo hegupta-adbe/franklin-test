@@ -9,6 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
+      - name: Generate a token
+        id: generate_token
+        uses: actions/create-github-app-token@v1
+        with:
+          app_id: ${{ secrets.REPO_APP_ID }}
+          private_key: ${{ secrets.REPO_APP_PK }}
       - name: Form data processor action
         id: data-processor
         uses: hegupta-adbe/form-data-processor@master
@@ -16,7 +22,7 @@ jobs:
           repo-owner-name: ${{ github.repository }}
           repo-key-id: ${{ secrets.REPO_KEY_ID }}
           repo-key: ${{ secrets.REPO_KEY }}
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ steps.generate_token.outputs.token }}
           ms-graph-tenant: ${{ vars.MS_GRAPH_TENANT }}
           ms-graph-auth-token: ${{ secrets.MS_GRAPH_AUTH_TOKEN }}
           ms-graph-refresh-token: ${{ secrets.MS_GRAPH_REFRESH_TOKEN }}
