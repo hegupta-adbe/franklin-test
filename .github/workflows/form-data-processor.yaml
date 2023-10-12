@@ -27,6 +27,7 @@ jobs:
           ms-graph-refresh-token: ${{ secrets.MS_GRAPH_REFRESH_TOKEN }}
           ms-graph-client-id: ${{ secrets.MS_GRAPH_CLIENT_ID }}
           ms-graph-client-secret: ${{ secrets.MS_GRAPH_CLIENT_SECRET }}
+          max-rows: ${{ vars.MAX_ROWS }}
           sf-instance-url: ${{ vars.SF_INSTANCE_URL }}
           sf-client-id: ${{ secrets.SF_CLIENT_ID }}
           sf-client-secret: ${{ secrets.SF_CLIENT_SECRET }}
