@@ -16,18 +16,18 @@ jobs:
           private_key: ${{ secrets.REPO_APP_PK }}
       - name: Form data processor action
         id: data-processor
-        uses: hegupta-adbe/form-data-processor@master
+        uses: hegupta-adbe/form-data-processor@helix-onedrive
         with:
           repo-owner-name: ${{ github.repository }}
           repo-key-id: ${{ secrets.REPO_KEY_ID }}
           repo-key: ${{ secrets.REPO_KEY }}
           repo-token: ${{ steps.generate_token.outputs.token }}
           ms-graph-tenant: ${{ vars.MS_GRAPH_TENANT }}
-          ms-graph-auth-token: ${{ secrets.MS_GRAPH_AUTH_TOKEN }}
           ms-graph-refresh-token: ${{ secrets.MS_GRAPH_REFRESH_TOKEN }}
           ms-graph-client-id: ${{ secrets.MS_GRAPH_CLIENT_ID }}
           ms-graph-client-secret: ${{ secrets.MS_GRAPH_CLIENT_SECRET }}
           max-rows: ${{ vars.MAX_ROWS }}
+          msal-cache-dump: ${{ secrets.MSAL_CACHE_DUMP }}
           sf-instance-url: ${{ vars.SF_INSTANCE_URL }}
           sf-client-id: ${{ secrets.SF_CLIENT_ID }}
           sf-client-secret: ${{ secrets.SF_CLIENT_SECRET }}
